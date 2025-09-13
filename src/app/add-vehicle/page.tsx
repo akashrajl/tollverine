@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './AddVehicle.module.css';
-import { supabase } from '@/lib/supabaseClient'; // We need a direct Supabase client for this
-import { Car, User, Shield, Siren, RefreshCw } from 'lucide-react';
+import { supabase } from '@/lib/supabaseClient';
+import { Car, User, Shield, RefreshCw } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAppContext } from '@/context/AppContext';
 
@@ -12,7 +12,6 @@ export default function AddVehiclePage() {
   const searchParams = useSearchParams();
   const { setIsLoading } = useAppContext();
 
-  // Pre-fill form from URL parameters if they exist
   const [plate, setPlate] = useState(searchParams.get('plate') || '');
   const [vehicleType, setVehicleType] = useState(searchParams.get('vtype') || 'car');
   const [ownerName, setOwnerName] = useState('');
@@ -23,23 +22,28 @@ export default function AddVehiclePage() {
     setIsLoading(true);
 
     try {
+      let response;
       if (status === 'stolen') {
-        const { error } = await supabase
+        response = await supabase
           .from('stolen_vehicles')
           .insert({ number_plate: plate, name: ownerName, vehicle_model: vehicleType });
-        if (error) throw error;
-        toast.success(`Stolen vehicle ${plate} added to database.`);
       } else {
-        const { error } = await supabase
+        response = await supabase
           .from('vehicles')
           .insert({ number_plate: plate, name: ownerName, vehicle_type: vehicleType, upi_id: 'default@upi' });
-        if (error) throw error;
-        toast.success(`Vehicle ${plate} added to database.`);
       }
+      
+      if (response.error) {
+        throw response.error;
+      }
+      
+      toast.success(`Vehicle ${plate} has been added to the database.`);
       router.push('/scanner');
-    } catch (error: any) {
-      console.error("Error saving vehicle data:", error);
-      toast.error(`Failed to save data: ${error.message}`);
+
+    } catch (error) {
+      const err = error as any;
+      console.error("Error saving vehicle data:", err);
+      toast.error(`Failed to save data: ${err.message || 'An unknown error occurred.'}`);
     } finally {
       setIsLoading(false);
     }
@@ -75,10 +79,6 @@ export default function AddVehiclePage() {
               <label className={styles.radioLabel}>
                 <input type="radio" name="status" value="stolen" checked={status === 'stolen'} onChange={() => setStatus('stolen')} />
                 Stolen
-              </label>
-              <label className={styles.radioLabel}>
-                <input type="radio" name="status" value="emergency" checked={status === 'emergency'} onChange={() => setStatus('emergency')} />
-                Emergency
               </label>
             </div>
           </div>
