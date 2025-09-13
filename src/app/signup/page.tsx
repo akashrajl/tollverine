@@ -64,7 +64,7 @@ export default function SignupPage() {
       sessionStorage.removeItem('redirectAfterLogin');
       router.push(redirectUrl);
       
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error signing up:", err);
       if (err.code === 'auth/email-already-in-use') {
         setError("User already exists with this email. Please log in.");
