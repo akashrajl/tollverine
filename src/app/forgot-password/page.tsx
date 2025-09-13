@@ -18,12 +18,17 @@ export default function ForgotPasswordPage() {
       await sendPasswordResetEmail(auth, email);
       toast.success("Password reset email sent! Please check your inbox.");
     } catch (error) {
-      const err = error; // Cast error to any to access code property
-      console.error("Error sending password reset email:", err);
-      if (err.code === 'auth/user-not-found') {
-        toast.error("No user found with this email address.");
+      console.error("Error sending password reset email:", error);
+      // Safely check the error type before accessing properties
+      if (typeof error === 'object' && error !== null && 'code' in error) {
+        const firebaseError = error as { code: string };
+        if (firebaseError.code === 'auth/user-not-found') {
+          toast.error("No user found with this email address.");
+        } else {
+          toast.error("Failed to send reset email. Please try again.");
+        }
       } else {
-        toast.error("Failed to send reset email. Please try again.");
+        toast.error("An unknown error occurred. Please try again.");
       }
     } finally {
       setIsSubmitting(false);
