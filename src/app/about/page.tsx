@@ -1,7 +1,7 @@
 'use client';
+import styles from './About.module.css'; // <-- THIS LINE IS LIKELY MISSING. MAKE SURE IT'S HERE.
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import styles from './About.module.css';
 import TypewriterHeading from '@/components/TypewriterHeading';
 import { Lightbulb, Zap, ShieldCheck, Linkedin, Github, Instagram, MessageCircle } from 'lucide-react';
 import TiltCard from '@/components/TiltCard';
