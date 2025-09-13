@@ -44,7 +44,7 @@ export default function SignupPage() {
 
   const handleEmailSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(''); // Reset error on new submission
+    setError('');
 
     if (!agreedToTerms) {
       toast.error("You must agree to the Terms of Service and Privacy Policy.");
@@ -64,12 +64,18 @@ export default function SignupPage() {
       sessionStorage.removeItem('redirectAfterLogin');
       router.push(redirectUrl);
       
-    } catch (error) {
-      console.error("Error signing up:", error);
-      if (error.code === 'auth/email-already-in-use') {
-        setError("User already exists with this email. Please log in.");
+    } catch (err) {
+      console.error("Error signing up:", err);
+      // Safely check the error type before accessing properties
+      if (typeof err === 'object' && err !== null && 'code' in err) {
+        const firebaseError = err as { code: string };
+        if (firebaseError.code === 'auth/email-already-in-use') {
+          setError("User already exists with this email. Please log in.");
+        } else {
+          setError("Failed to create an account. Please try again.");
+        }
       } else {
-        setError("Failed to create an account. Please try again.");
+        setError("An unknown error occurred. Please try again.");
       }
     }
   };
