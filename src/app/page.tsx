@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { HeartPulse, Clock, Car, Ambulance, Shield, Wallet, Cpu, CheckCircle, Zap, Users, AlertTriangle, FileText, Download, Link as LinkIcon, Database, BarChart2, Cloud, History } from 'lucide-react';
+import { HeartPulse, Clock, Car, Ambulance, Shield, Wallet, Cpu, CheckCircle, Zap, Users, AlertTriangle, Download, Database, BarChart2, Cloud, History } from 'lucide-react';
 import styles from './LandingPage.module.css';
 import ieeeStyles from './IEEE.module.css';
 import SandScatterText from '@/components/SandScatterText';
@@ -98,7 +98,7 @@ export default function Home() {
           <div className={styles.container}>
             <TypewriterHeading text="Time Saves Lives. Tolls Shouldn’t Delay." className={styles.sectionTitle} />
             <div className={styles.problemGrid}>
-              <TiltCard><div className={styles.problemCard}><h3><HeartPulse size={28} color="#f87171" /> Critical Delays for Emergency Services</h3><p>Manual checks and traffic congestion at toll plazas can fatally postpone an ambulance's arrival at the hospital.</p></div></TiltCard>
+              <TiltCard><div className={styles.problemCard}><h3><HeartPulse size={28} color="#f87171" /> Critical Delays for Emergency Services</h3><p>Manual checks and traffic congestion at toll plazas can fatally postpone an ambulance&apos;s arrival at the hospital.</p></div></TiltCard>
               <TiltCard><div className={styles.problemCard}><h3><Clock size={28} color="#fb923c" /> Inefficient and Congested Tolls</h3><p>Long queues, cash handling, and manual errors lead to wasted fuel, increased travel time, and significant revenue leakage for operators.</p></div></TiltCard>
               <TiltCard><div className={styles.problemCard}><h3><Users size={28} color="#60a5fa" /> Poor User Experience</h3><p>Travelers face frustrating stops, confusing payment methods, and a lack of real-time traffic information, diminishing the overall journey.</p></div></TiltCard>
               <TiltCard><div className={styles.problemCard}><h3><AlertTriangle size={28} color="#facc15" /> Security Vulnerabilities</h3><p>Traditional systems are susceptible to toll evasion, vehicle theft, and lack the data needed for effective incident response.</p></div></TiltCard>
@@ -221,7 +221,7 @@ export default function Home() {
                 <strong>GITCON 2025:</strong> IEEE Global Conference on Information Technology and Communication Networks
               </p>
               <p className={ieeeStyles.paperDescription}>
-                Our foundational paper, "Human-Less Toll Plaza Vehicle Recognition Using Deep Learning," was accepted for presentation at GITCON 2025, hosted at KLS Gogte Institute of Technology. This conference is a premier event for showcasing advancements in IT and networking, and our work highlights a significant contribution to intelligent transportation systems.
+                Our foundational paper, &quot;Human-Less Toll Plaza Vehicle Recognition Using Deep Learning,&quot; was accepted for presentation at GITCON 2025, hosted at KLS Gogte Institute of Technology. This conference is a premier event for showcasing advancements in IT and networking, and our work highlights a significant contribution to intelligent transportation systems.
               </p>
               <div className={ieeeStyles.buttonGroup}>
                 <a href="https://gitcon.in/" target="_blank" rel="noopener noreferrer" className={ieeeStyles.linkButton}>
