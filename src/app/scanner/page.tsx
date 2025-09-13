@@ -59,7 +59,7 @@ export default function ScannerPage() {
       sessionStorage.setItem('analysisResult', JSON.stringify(result));
       router.push('/result');
 
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error during analysis:", error);
       toast.error(error.message || "An unexpected error occurred.");
     } finally {
