@@ -20,7 +20,6 @@
 - [Live Demo & Screenshots](#-live-demo--screenshots)
 - [Key Features](#-key-features)
 - [Technology Stack](#-technology-stack)
-- [Project Structure](#-project-structure)
 - [Installation & Setup](#-installation--setup)
 - [Future Scope](#-future-scope)
 - [Acknowledgements](#-acknowledgements)
@@ -44,7 +43,7 @@ The entire system is built with a modern tech stack, featuring a Next.js fronten
 
 ## 🚀 Live Demo & Screenshots
 
-- **Live Website (Frontend):** [**https://tollverine.vercel.app/**](https://tollverine.vercel.app/)
+- **Live Website :** [**https://tollverine.vercel.app/**](https://tollverine.vercel.app/)
 - **Live API (Backend):** [**https://akashrajl2104-tollverine-backend.hf.space**](https://akashrajl2104-tollverine-backend.hf.space)
 - **YouTube Demo Video:** [**https://youtu.be/yuAsU5qke2I**](https://youtu.be/yuAsU5qke2I)
 
@@ -81,35 +80,7 @@ The entire system is built with a modern tech stack, featuring a Next.js fronten
 
 ---
 
-## 📁 Project Structure
-
-tollverine/
-├── tollverine-frontend/   # The Next.js frontend application
-│   ├── public/              # Static assets (images, logos, etc.)
-│   ├── src/
-│   │   ├── app/             # Main application pages and layouts
-│   │   ├── components/      # Reusable React components
-│   │   ├── context/         # Global state management (Auth, App, Theme)
-│   │   └── lib/             # Firebase & Supabase client setup
-│   └── next.config.js       # Next.js configuration
-│
-└── tollverine-backend/    # The FastAPI backend application
-├── models/              # Pre-trained AI models (.pt files)
-├── uploads/             # Temporary storage for uploaded files
-├── logs/                # Backend log files
-├── app.py               # The main FastAPI server and AI logic
-├── Dockerfile           # Configuration for deployment on Hugging Face
-├── requirements.txt     # Python dependencies
-└── .env                 # Environment variables (API keys, etc.)
-
-
----
-
 ## 🛠️ Installation & Setup
-
-To run this project locally, you will need to set up the frontend and backend separately.
-
-### Frontend Setup (`tollverine-frontend`)
 
 1.  **Clone the repository:**
     ```bash
@@ -120,13 +91,13 @@ To run this project locally, you will need to set up the frontend and backend se
     ```bash
     npm install
     ```
-3.  **Create a `.env.local` file** and add your Firebase and Supabase public keys:
+3.  **Create a `.env.local` file** in the root of the frontend folder and add your Firebase and Supabase public keys:
     ```
-    # Firebase
+    # Firebase (for login/signup)
     NEXT_PUBLIC_FIREBASE_API_KEY="..."
-    # ... (all other Firebase config keys)
+    # ... (add all other Firebase config keys)
 
-    # Supabase
+    # Supabase (for the 'Add Vehicle' page)
     NEXT_PUBLIC_SUPABASE_URL="..."
     NEXT_PUBLIC_SUPABASE_ANON_KEY="..."
     ```
@@ -134,34 +105,15 @@ To run this project locally, you will need to set up the frontend and backend se
     ```bash
     npm run dev
     ```
-    Open [http://localhost:3000](http://localhost:3000).
+    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Backend Setup (`tollverine-backend`)
+---
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/akashrajl/tollverine-backend.git](https://github.com/akashrajl/tollverine-backend.git)
-    cd tollverine-backend
-    ```
-2.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  **Create a `.env` file** and add your secret keys:
-    ```
-    # Supabase
-    SUPABASE_URL="..."
-    SUPABASE_KEY="..."
+## 🤖 Backend API
 
-    # Formspree
-    FORMSPREE_ALERT_URL="..."
-    ```
-4.  **Download AI Models**: Place your `vehicle_model.pt` and `license_plate_model.pt` files inside a `models/` folder.
-5.  **Run the FastAPI server:**
-    ```bash
-    uvicorn app:app --reload --port 5001
-    ```
-    The backend will be running at [http://127.0.0.1:5001](http://127.0.0.1:5001).
+The backend for this project is a separate, private repository deployed on Hugging Face Spaces. It is a FastAPI server that handles all AI processing and database interactions.
+
+- **Live API Endpoint:** [**https://akashrajl2104-tollverine-backend.hf.space/analyze**](https://akashrajl2104-tollverine-backend.hf.space/analyze)
 
 ---
 
@@ -185,7 +137,7 @@ To run this project locally, you will need to set up the frontend and backend se
 ## 📞 Contact
 
 - **Akash Raj L** - [LinkedIn](https://www.linkedin.com/in/akashrajl/) | [GitHub](https://github.com/akashrajl) | laakashraj2004@gmail.com
-- **Sangeethkumar M** - [LinkedIn](https://www.linkedin.com/in/sangeethkumar-m-563924256) | [GitHub](https://github.com/Sangeethkumar-180504)
-- **Rahul M** - [LinkedIn](https://www.linkedin.com/in/rahul-murali-8b5164258) | [GitHub](https://github.com/rahulmurali123)
+- **Sangeethkumar M** - [LinkedIn](https://www.linkedin.com/in/sangeethkumar-m-563924256) | [GitHub](https://github.com/Sangeethkumar-180504) | sangeeth97kumar@gmail.com
+- **Rahul M** - [LinkedIn](https://www.linkedin.com/in/rahul-murali-8b5164258) | [GitHub](https://github.com/rahulmurali123) | millionairemindset1709@gmail.com
 
 Project Link: [https://github.com/akashrajl/tollverine](https://github.com/akashrajl/tollverine)
