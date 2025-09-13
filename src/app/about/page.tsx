@@ -66,6 +66,7 @@ export default function AboutPage() {
         <div className={styles.storyContent}>
           <h2>Our Story</h2>
           <p>Tollverine began as a research project with a single, critical goal: to eliminate fatal delays for emergency services at toll plazas. We saw a problem where seconds could mean the difference between life and death. This inspired us to leverage the power of AI to create a system that not only grants instant priority access to ambulances but also revolutionizes the tolling experience for every driver. Our name, a fusion of &quot;Toll&quot; and &quot;Wolverine,&quot; reflects our system&apos;s sharp, fast, and powerful nature.</p>
+        </div>
         <div className={styles.storyImage}>
           <Image src="/logo.png" alt="Tollverine Logo" width={300} height={300} unoptimized />
         </div>
