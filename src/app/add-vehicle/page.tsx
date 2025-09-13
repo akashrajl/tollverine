@@ -41,7 +41,7 @@ export default function AddVehiclePage() {
       router.push('/scanner');
 
     } catch (error) {
-      const err = error as any;
+      const err = error;
       console.error("Error saving vehicle data:", err);
       toast.error(`Failed to save data: ${err.message || 'An unknown error occurred.'}`);
     } finally {
