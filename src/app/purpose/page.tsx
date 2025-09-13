@@ -2,22 +2,19 @@
 import styles from './Purpose.module.css';
 import { motion } from 'framer-motion';
 import TypewriterHeading from '@/components/TypewriterHeading';
-import { HeartPulse, Rocket, Zap, Users, ShieldCheck } from 'lucide-react';
+import { Lightbulb, Rocket, Zap, HeartPulse } from 'lucide-react';
 import TiltCard from '@/components/TiltCard';
 import Link from 'next/link';
 
 export default function PurposePage() {
   return (
     <main className={styles.pageContainer}>
-      {/* --- HERO SECTION --- */}
       <section className={styles.heroSection}>
         <TypewriterHeading text="Redefining Movement for a Smarter Future." className={styles.heroTitle} />
         <p className={styles.heroSubtitle}>
           We believe that technology should serve humanity. Our purpose is to create intelligent, efficient, and life-saving transportation infrastructure for everyone.
         </p>
       </section>
-
-      {/* --- THE 'WHY' SECTION --- */}
       <section className={styles.section}>
         <div className={styles.container}>
           <motion.div
@@ -33,8 +30,6 @@ export default function PurposePage() {
           </motion.div>
         </div>
       </section>
-
-      {/* --- OUR PILLARS SECTION --- */}
       <section className={styles.section}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Guiding Principles</h2>
@@ -57,16 +52,14 @@ export default function PurposePage() {
               <div className={styles.pillarCard}>
                 <Rocket size={32} />
                 <h3>Future-Focused</h3>
-                <p>Tollverine is more than a tolling system; it's a foundational block for future smart cities, providing data and infrastructure for a connected transportation network.</p>
+                <p>Tollverine is more than a tolling system; it&apos;s a foundational block for future smart cities, providing data and infrastructure for a connected transportation network.</p>
               </div>
             </TiltCard>
           </div>
         </div>
       </section>
-
-      {/* --- FINAL CTA SECTION --- */}
       <section className={styles.ctaSection}>
-        <h2>Want to Know How It Works?</h2>
+        <h2>Join us in building the future of transportation.</h2>
         <Link href="/technology" className={styles.ctaButton}>
           Explore the Technology
         </Link>
