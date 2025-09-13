@@ -8,22 +8,12 @@ import { useAuth } from '@/context/AuthContext';
 import { useAppContext } from '@/context/AppContext';
 import { Upload, Camera, FileVideo, FileImage } from 'lucide-react';
 import toast from 'react-hot-toast';
-import WebcamFeed from '@/components/WebcamFeed'; // <-- Import the new component
-
-// This function converts a base64 Data URL (from the webcam) into a File object
-const dataUrlToFile = async (dataUrl: string, fileName: string): Promise<File> => {
-    const res = await fetch(dataUrl);
-    const blob = await res.blob();
-    return new File([blob], fileName, { type: blob.type });
-};
-
 
 export default function ScannerPage() {
   const { user } = useAuth();
   const router = useRouter();
   const { setIsLoading } = useAppContext();
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showWebcam, setShowWebcam] = useState(false); // New state for webcam
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -34,18 +24,24 @@ export default function ScannerPage() {
     }
 
     setIsLoading(true);
-    
-    // Convert file to Data URL to display on the result page
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = async () => {
-      sessionStorage.setItem('processedImage', reader.result as string);
+
+    // This function converts the file to a Data URL for the result page
+    const fileToDataUrl = (file: File): Promise<string> => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = (error) => reject(error);
+            reader.readAsDataURL(file);
+        });
     };
 
-    const formData = new FormData();
-    formData.append('file', file);
-
     try {
+      const imageUrl = await fileToDataUrl(file);
+      sessionStorage.setItem('processedImage', imageUrl);
+
+      const formData = new FormData();
+      formData.append('file', file);
+
       const response = await fetch('https://akashrajl2104-tollverine-backend.hf.space/analyze', {
         method: 'POST',
         body: formData,
@@ -61,17 +57,15 @@ export default function ScannerPage() {
 
     } catch (error) {
       console.error("Error during analysis:", error);
-      toast.error(error.message || "An unexpected error occurred.");
+      // Safely handle the error object
+      if (error instanceof Error) {
+        toast.error(error.message || "An unexpected error occurred.");
+      } else {
+        toast.error("An unexpected error occurred.");
+      }
     } finally {
       setIsLoading(false);
     }
-  };
-  
-  const handleCapture = async (imageSrc: string) => {
-      setShowWebcam(false); // Close the webcam feed
-      const file = await dataUrlToFile(imageSrc, 'webcam-capture.jpg');
-      setUploadedFile(file);
-      handleAnalysis(file); // Immediately send the captured frame for analysis
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -93,7 +87,7 @@ export default function ScannerPage() {
       if (!user) {
           setShowLoginModal(true);
       } else {
-          setShowWebcam(true); // Open the webcam feed
+          toast.error("Live feed analysis is not yet implemented.");
       }
   };
 
@@ -160,12 +154,6 @@ export default function ScannerPage() {
           onClose={() => setShowLoginModal(false)}
           onLoginClick={handleLoginRedirect}
           onSignupClick={handleSignupRedirect} 
-        />
-      )}
-      {showWebcam && (
-        <WebcamFeed 
-            onCapture={handleCapture}
-            onClose={() => setShowWebcam(false)}
         />
       )}
     </>
