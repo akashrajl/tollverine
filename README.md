@@ -1,15 +1,56 @@
-# Tollverine AI  Tollbooth Automation
+<div align="center">
 
-[![Website](https://img.shields.io/badge/Website-Live-brightgreen?style=for-the-badge&logo=vercel)](https://tollverine.vercel.app/)
-[![Backend Status](https://img.shields.io/badge/Backend-Live-blue?style=for-the-badge&logo=huggingface)](https://akashrajl2104-tollverine-backend.hf.space)
+  # Tollverine: AI-Powered Tollbooth Automation
+  
+  **An intelligent, automated tolling system that uses AI to eliminate congestion, prioritize emergency vehicles, and create a seamless travel experience.**
 
-**Tollverine** is a full-stack AI-powered application designed to revolutionize toll collection by creating a seamless, automated, and intelligent tolling experience. The system uses a multi-layered AI pipeline to detect and classify vehicles, recognize license plates, and process payments automatically, with a special focus on granting immediate priority access to emergency vehicles.
+  <p>
+    <img src="https://img.shields.io/badge/Frontend-Next.js-black?style=for-the-badge&logo=next.js" alt="Next.js">
+    <img src="https://img.shields.io/badge/Backend-FastAPI-green?style=for-the-badge&logo=fastapi" alt="FastAPI">
+    <img src="https://img.shields.io/badge/Database-Supabase-brightgreen?style=for-the-badge&logo=supabase" alt="Supabase">
+    <img src="https://img.shields.io/badge/AI_Model-YOLOv8-blueviolet?style=for-the-badge" alt="YOLOv8">
+    <img src="https://img.shields.io/badge/Deployment-Vercel_&_HuggingFace-orange?style=for-the-badge&logo=vercel" alt="Deployment">
+    </p>
+</div>
 
-### 📺 Live Demo
+---
 
-- **Frontend Website:** [**https://tollverine.vercel.app/**](https://tollverine.vercel.app/)
-- **Backend API (Hugging Face):** [**https://akashrajl2104-tollverine-backend.hf.space**](https://akashrajl2104-tollverine-backend.hf.space)
+### 📖 Table of Contents
+- [Description](#-description--overview)
+- [Live Demo & Screenshots](#-live-demo--screenshots)
+- [Key Features](#-key-features)
+- [Technology Stack](#-technology-stack)
+- [Project Structure](#-project-structure)
+- [Installation & Setup](#-installation--setup)
+- [Future Scope](#-future-scope)
+- [Acknowledgements](#-acknowledgements)
+- [Contact](#-contact)
+
+---
+
+## 📜 Description / Overview
+
+**Tollverine** is a full-stack AI application designed to modernize and automate toll collection. The project addresses critical inefficiencies in traditional tolling systems, such as traffic congestion and delays for emergency services.
+
+By leveraging a powerful AI pipeline, Tollverine provides a comprehensive solution that includes:
+- **Real-time vehicle detection** and classification.
+- **Automated Number Plate Recognition (ANPR)** for seamless toll deduction.
+- A failsafe system to grant **unconditional priority to emergency vehicles**.
+- **Stolen vehicle detection** with an integrated alert system.
+
+The entire system is built with a modern tech stack, featuring a Next.js frontend for a dynamic user experience and a high-performance FastAPI backend to handle the AI processing.
+
+---
+
+## 🚀 Live Demo & Screenshots
+
+- **Live Website (Frontend):** [**https://tollverine.vercel.app/**](https://tollverine.vercel.app/)
+- **Live API (Backend):** [**https://akashrajl2104-tollverine-backend.hf.space**](https://akashrajl2104-tollverine-backend.hf.space)
 - **YouTube Demo Video:** [**https://youtu.be/yuAsU5qke2I**](https://youtu.be/yuAsU5qke2I)
+
+| Landing Page | Scanner Interface | Analysis Result |
+| :---: | :---: | :---: |
+| *Screenshot of the landing page* | *Screenshot of the scanner page* | *Screenshot of the result page* |
 
 ---
 
@@ -18,7 +59,7 @@
 - **AI Vehicle Detection & Classification**: Utilizes a YOLOv8 model to instantly detect vehicle types (car, bus, truck, bike, ambulance, etc.) and classify them into wheeler categories (2W, 3W, 4W+).
 - **Automated Number Plate Recognition (ANPR)**: Employs a second YOLOv8 model and EasyOCR to accurately extract text from license plates, even in challenging conditions.
 - **Emergency Vehicle Priority**: Automatically identifies ambulances, fire trucks, and police vehicles, granting them a "FREE TOLL!!" pass without delay.
-- **Stolen Vehicle Detection**: Cross-references recognized license plates with a Supabase cloud database to identify stolen vehicles and send an alert.
+- **Stolen Vehicle Detection**: Cross-references recognized license plates with a Supabase cloud database to identify stolen vehicles and sends an alert via Formspree.
 - **Automated UPI Payments**: For registered users, the system deducts the correct toll fee from a linked UPI account. For unknown vehicles, it sends a manual payment alert.
 - **12-Hour Duplicate Prevention**: Intelligently logs each transit and prevents double-charging the same vehicle within a 12-hour window.
 - **User Authentication**: A complete login/signup system built with Firebase Authentication, including Google Sign-In and email/password options.
@@ -36,10 +77,35 @@
 | **Database** | Supabase (PostgreSQL) |
 | **Authentication**| Firebase Authentication (Google & Email/Password) |
 | **Deployment** | Vercel (Frontend), Hugging Face Spaces (Backend - Docker) |
+| **Alerts** | Formspree |
 
 ---
 
-## 🚀 Getting Started
+## 📁 Project Structure
+
+tollverine/
+├── tollverine-frontend/   # The Next.js frontend application
+│   ├── public/              # Static assets (images, logos, etc.)
+│   ├── src/
+│   │   ├── app/             # Main application pages and layouts
+│   │   ├── components/      # Reusable React components
+│   │   ├── context/         # Global state management (Auth, App, Theme)
+│   │   └── lib/             # Firebase & Supabase client setup
+│   └── next.config.js       # Next.js configuration
+│
+└── tollverine-backend/    # The FastAPI backend application
+├── models/              # Pre-trained AI models (.pt files)
+├── uploads/             # Temporary storage for uploaded files
+├── logs/                # Backend log files
+├── app.py               # The main FastAPI server and AI logic
+├── Dockerfile           # Configuration for deployment on Hugging Face
+├── requirements.txt     # Python dependencies
+└── .env                 # Environment variables (API keys, etc.)
+
+
+---
+
+## 🛠️ Installation & Setup
 
 To run this project locally, you will need to set up the frontend and backend separately.
 
@@ -54,14 +120,13 @@ To run this project locally, you will need to set up the frontend and backend se
     ```bash
     npm install
     ```
-3.  **Create a `.env.local` file** in the root of the frontend folder and add your Firebase and Supabase public keys:
+3.  **Create a `.env.local` file** and add your Firebase and Supabase public keys:
     ```
-    # Firebase (for login/signup)
+    # Firebase
     NEXT_PUBLIC_FIREBASE_API_KEY="..."
-    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="..."
-    # ... (add all other Firebase config keys)
+    # ... (all other Firebase config keys)
 
-    # Supabase (for the 'Add Vehicle' page)
+    # Supabase
     NEXT_PUBLIC_SUPABASE_URL="..."
     NEXT_PUBLIC_SUPABASE_ANON_KEY="..."
     ```
@@ -69,7 +134,7 @@ To run this project locally, you will need to set up the frontend and backend se
     ```bash
     npm run dev
     ```
-    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    Open [http://localhost:3000](http://localhost:3000).
 
 ### Backend Setup (`tollverine-backend`)
 
@@ -82,13 +147,13 @@ To run this project locally, you will need to set up the frontend and backend se
     ```bash
     pip install -r requirements.txt
     ```
-3.  **Create a `.env` file** in the root of the backend folder and add your secret keys:
+3.  **Create a `.env` file** and add your secret keys:
     ```
     # Supabase
     SUPABASE_URL="..."
     SUPABASE_KEY="..."
 
-    # Formspree (for alerts)
+    # Formspree
     FORMSPREE_ALERT_URL="..."
     ```
 4.  **Download AI Models**: Place your `vehicle_model.pt` and `license_plate_model.pt` files inside a `models/` folder.
@@ -100,19 +165,27 @@ To run this project locally, you will need to set up the frontend and backend se
 
 ---
 
-## 📄 IEEE Research Paper
+## 🚀 Future Scope
 
-The foundational research for this project, titled **"Human-Less Toll Plaza Vehicle Recognition Using Deep Learning,"** was accepted for presentation at the IEEE Global Interdisciplinary Conference (GITCON) 2025.
-
-- **Visit the conference site:** [https://gitcon.in/](https://gitcon.in/)
-- **View on IEEE Xplore:** [https://ieeexplore.ieee.org/](https://ieeexplore.ieee.org/)
+- **Real UPI Payment Integration**: Replace the simulated UPI deduction with a real payment gateway API (like Razorpay or Stripe).
+- **User Dashboard**: Build a dashboard where logged-in users can register their vehicles, link their UPI IDs, and view their transaction history.
+- **Live Feed Implementation**: Fully implement the "Live Feed" feature on the scanner page using `react-webcam`.
 
 ---
 
-## 👨‍💻 Meet the Team
+## 🙏 Acknowledgements
 
-| Name | Role |
-| :--- | :--- |
-| **Akash Raj L** | Founder & AI Architect |
-| **Sangeethkumar M**| Lead Developer |
-| **Rahul M** | System Integration |
+- **Ultralytics YOLOv8** for the powerful object detection models.
+- **EasyOCR** for the robust text recognition library.
+- **Supabase** for providing a generous and powerful free-tier database.
+- **Vercel** and **Hugging Face** for the seamless deployment experience.
+
+---
+
+## 📞 Contact
+
+- **Akash Raj L** - [LinkedIn](https://www.linkedin.com/in/akashrajl/) | [GitHub](https://github.com/akashrajl) | laakashraj2004@gmail.com
+- **Sangeethkumar M** - [LinkedIn](https://www.linkedin.com/in/sangeethkumar-m-563924256) | [GitHub](https://github.com/Sangeethkumar-180504)
+- **Rahul M** - [LinkedIn](https://www.linkedin.com/in/rahul-murali-8b5164258) | [GitHub](https://github.com/rahulmurali123)
+
+Project Link: [https://github.com/akashrajl/tollverine](https://github.com/akashrajl/tollverine)
