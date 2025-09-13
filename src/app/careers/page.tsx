@@ -16,7 +16,7 @@ export default function CareersPage() {
       <div className={styles.content}>
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Why Work With Us?</h2>
-          <p>At Tollverine, you'll be part of a small, agile team working on cutting-edge technology that has a real-world impact. We value innovation, collaboration, and a passion for solving complex challenges. If you're driven to build systems that improve society, you'll feel right at home.</p>
+          <p>At Tollverine, you&apos;ll be part of a small, agile team working on cutting-edge technology that has a real-world impact. We value innovation, collaboration, and a passion for solving complex challenges. If you&apos;re driven to build systems that improve society, you&apos;ll feel right at home.</p>
         </section>
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Open Positions</h2>
