@@ -10,10 +10,10 @@ export default function TermsOfServicePage() {
 
       <article className={styles.content}>
         <h2>1. Acceptance of Terms</h2>
-        <p>By creating an account and using the "Tollverine" automated tolling service ("Service"), you agree to be bound by these Terms of Service ("Terms"). These Terms affect your legal rights and obligations. If you do not agree to be bound by all of these Terms, do not access or use the Service.</p>
+        <p>By creating an account and using the &quot;Tollverine&quot; automated tolling service (&quot;Service&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). These Terms affect your legal rights and obligations. If you do not agree to be bound by all of these Terms, do not access or use the Service.</p>
         
         <h2>2. Description of Service</h2>
-        <p>Tollverine provides a service that uses Automated Number Plate Recognition (ANPR) and other AI technologies to automate the payment of tolls. By linking your vehicle's license plate to your account, you authorize us to automatically charge your designated payment method for tolls incurred at participating toll plazas.</p>
+        <p>Tollverine provides a service that uses Automated Number Plate Recognition (ANPR) and other AI technologies to automate the payment of tolls. By linking your vehicle&apos;s license plate to your account, you authorize us to automatically charge your designated payment method for tolls incurred at participating toll plazas.</p>
         
         <h2>3. User Accounts and Responsibilities</h2>
         <p>You are responsible for maintaining the confidentiality of your account and password. You agree to accept responsibility for all activities that occur under your account. You must provide us with information that is accurate, complete, and current at all times. It is your responsibility to update your vehicle and payment information as necessary.</p>
