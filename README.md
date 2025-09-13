@@ -48,10 +48,8 @@ The entire system is built with a modern tech stack, featuring a Next.js fronten
 - **YouTube Demo Video:** [**https://youtu.be/yuAsU5qke2I**](https://youtu.be/yuAsU5qke2I)
 
 | Landing Page | Scanner Interface | Analysis Result |
-| <img width="1888" height="1079" alt="Screenshot 2025-09-13 191548" src="https://github.com/user-attachments/assets/a1c8536b-2280-4981-ad0b-9822d61b89d0" />|
- | <img width="1882" height="1079" alt="Screenshot 2025-09-13 191617" src="https://github.com/user-attachments/assets/b6caa623-728a-4fd4-b466-9721c205a83f" />|
- | <img width="1888" height="1079" alt="Screenshot 2025-09-13 191744" src="https://github.com/user-attachments/assets/882d9202-e9aa-45c7-98d0-1ba715b6120f" />|
-| *Screenshot of the landing page* | *Screenshot of the scanner page* | *Screenshot of the result page* |
+| :---: | :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/a1c8536b-2280-4981-ad0b-9822d61b89d0" width="300" alt="Landing Page Screenshot" /> | <img src="https://github.com/user-attachments/assets/b6caa623-728a-4fd4-b466-9721c205a83f" width="300" alt="Scanner Page Screenshot" /> | <img src="https://github.com/user-attachments/assets/882d9202-e9aa-45c7-98d0-1ba715b6120f" width="300" alt="Result Page Screenshot" /> |
 
 ---
 
