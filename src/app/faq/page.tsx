@@ -1,4 +1,3 @@
-'use client';
 import styles from './FAQ.module.css';
 import TypewriterHeading from '@/components/TypewriterHeading';
 import Accordion from '@/components/Accordion';
@@ -115,7 +114,7 @@ export default function FAQPage() {
       <section className={styles.heroSection}>
         <TypewriterHeading text="Frequently Asked Questions" className={styles.heroTitle} />
         <p className={styles.heroSubtitle}>
-          Have questions? We've got answers. If you can't find what you're looking for, feel free to contact our support team.
+          Have questions? We&apos;ve got answers. If you can&apos;t find what you&apos;re looking for, feel free to contact our support team.
         </p>
       </section>
 
