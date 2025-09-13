@@ -21,14 +21,12 @@ export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); // State for the error message
 
   const handleGoogleLogin = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      const redirectUrl = sessionStorage.getItem('redirectAfterLogin') || '/';
+      router.push(sessionStorage.getItem('redirectAfterLogin') || '/');
       sessionStorage.removeItem('redirectAfterLogin');
-      router.push(redirectUrl);
     } catch (error) {
       console.error("Error during Google sign-in:", error);
       toast.error("Failed to sign in with Google.");
@@ -37,20 +35,14 @@ export default function LoginPage() {
   
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(''); // Reset error on new submission
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      const redirectUrl = sessionStorage.getItem('redirectAfterLogin') || '/';
+      router.push(sessionStorage.getItem('redirectAfterLogin') || '/');
       sessionStorage.removeItem('redirectAfterLogin');
-      router.push(redirectUrl);
-    } catch (err: any) {
+    } catch (error) {
+      const err = error as Error;
       console.error("Error signing in:", err);
-      // Set the specific error message based on the Firebase error code
-      if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
-        setError('Incorrect email or password. Please try again.');
-      } else {
-        setError('An unexpected error occurred. Please try again.');
-      }
+      toast.error("Invalid credentials. Please try again.");
     }
   };
 
@@ -61,13 +53,12 @@ export default function LoginPage() {
         <form onSubmit={handleEmailLogin}>
           <div className={styles.inputGroup}>
             <Mail />
-            <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input type="email" placeholder="Username or Gmail" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           <div className={styles.inputGroup}>
             <Lock />
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </div>
-          {error && <p className={styles.errorMessage}>{error}</p>}
           <div className={styles.actions}>
             <Link href="/forgot-password" className={styles.forgotPassword}>Forgot Password?</Link>
           </div>
