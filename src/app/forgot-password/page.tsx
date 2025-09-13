@@ -18,7 +18,7 @@ export default function ForgotPasswordPage() {
       await sendPasswordResetEmail(auth, email);
       toast.success("Password reset email sent! Please check your inbox.");
     } catch (error) {
-      const err = error as any; // Cast error to any to access code property
+      const err = error; // Cast error to any to access code property
       console.error("Error sending password reset email:", err);
       if (err.code === 'auth/user-not-found') {
         toast.error("No user found with this email address.");
