@@ -28,7 +28,7 @@ export default function TermsOfServicePage() {
         <p>We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. Upon termination, your right to use the Service will immediately cease.</p>
 
         <h2>7. Limitation of Liability</h2>
-        <p>In no event shall Tollverine, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.</p>
+        <p>In No event shall Tollverine, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.</p>
 
         <h2>Contact Us</h2>
         <p>If you have any questions about these Terms, please contact us by email: <a href="mailto:tollverine@gmail.com">tollverine@gmail.com</a>.</p>
