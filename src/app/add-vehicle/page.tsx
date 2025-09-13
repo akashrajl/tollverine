@@ -41,9 +41,13 @@ export default function AddVehiclePage() {
       router.push('/scanner');
 
     } catch (error) {
-      const err = error;
-      console.error("Error saving vehicle data:", err);
-      toast.error(`Failed to save data: ${err.message || 'An unknown error occurred.'}`);
+      console.error("Error saving vehicle data:", error);
+      // This is the corrected error handling
+      if (error instanceof Error) {
+        toast.error(`Failed to save data: ${error.message}`);
+      } else {
+        toast.error('An unknown error occurred.');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -54,7 +58,6 @@ export default function AddVehiclePage() {
       <div className={styles.formContainer}>
         <h1>Add Unknown Vehicle Details</h1>
         <p>The vehicle with license plate <span className={styles.highlight}>{plate || 'N/A'}</span> was not found. Please add its details below.</p>
-        
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
             <label htmlFor="plate"><Shield size={18}/> License Plate Number</label>
@@ -68,7 +71,6 @@ export default function AddVehiclePage() {
             <label htmlFor="vehicleType"><Car size={18}/> Vehicle Type</label>
             <input id="vehicleType" type="text" value={vehicleType} onChange={(e) => setVehicleType(e.target.value)} required />
           </div>
-
           <div className={styles.radioGroup}>
             <p>Vehicle Status:</p>
             <div className={styles.radioOptions}>
@@ -82,7 +84,6 @@ export default function AddVehiclePage() {
               </label>
             </div>
           </div>
-
           <div className={styles.buttonGroup}>
             <button type="submit" className={styles.submitButton}>Submit Details</button>
             <button type="button" onClick={() => router.push('/scanner')} className={styles.scanAgainButton}>
