@@ -1,0 +1,147 @@
+.pageContainer {
+  width: 100%;
+  padding-top: 120px;
+}
+
+.header {
+  text-align: center;
+  padding: 6rem 2rem;
+  /* REMOVED: border-bottom: 1px solid var(--border-color); */
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section p, .section li {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.logoDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: var(--card-background);
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.logoImage {
+  flex-shrink: 0;
+}
+
+.contactSection {
+  text-align: center;
+}
+
+.button, .downloadLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--text-primary);
+  color: var(--background-dark);
+  border: 1px solid var(--text-primary);
+}
+
+.button:hover, .downloadLink:hover {
+  transform: scale(1.05);
+}
+
+.jobListing {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.jobListing h3 {
+  font-size: 1.5rem;
+}
+
+.jobListing p {
+  color: var(--golden-outline);
+  margin: 0;
+}
+
+/* --- New Sitemap List Styles --- */
+.sitemapList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.sitemapList li a {
+  --glow-color: #a855f7; /* Purple glow */
+  display: block;
+  padding: 1.25rem 1.5rem; /* Adjusted padding */
+  background-color: var(--card-background);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 1.1rem; /* Slightly smaller font */
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.sitemapList li a:hover {
+  transform: translateY(-5px);
+  border-color: var(--glow-color);
+  box-shadow: 0 0 20px 0px var(--glow-color);
+}
+
+@media (max-width: 600px) {
+  .logoDisplay {
+    flex-direction: column;
+  }
+}

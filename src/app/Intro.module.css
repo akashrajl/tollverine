@@ -1,0 +1,75 @@
+.introSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  /* Stylish gradient text */
+  background: linear-gradient(120deg, #e5e7eb, #9ca3af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  max-width: 600px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.scanContainer {
+  margin-top: 3rem;
+  padding: 1.5rem 2rem;
+  background-color: rgba(10, 20, 40, 0.4);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.scanContainer h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.scanButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--accent-primary);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: none;
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.scanButton:hover {
+  transform: scale(1.1); /* The pop-up effect */
+  box-shadow: 0 6px 25px rgba(14, 165, 233, 0.5);
+}
+
+.introSection {
+  /* ... other styles ... */
+  padding-top: 120px; /* Add padding to push content down */
+}

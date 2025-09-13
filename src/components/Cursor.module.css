@@ -1,0 +1,39 @@
+.cursorDot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--golden-outline);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.cursorOutline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--golden-outline);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+  transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+/* This is the new style for when the cursor is over a clickable element */
+.hovered {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(218, 165, 32, 0.2);
+}
+
+.hovered ~ .cursorDot {
+  opacity: 0; /* Hide the inner dot when hovered */
+}

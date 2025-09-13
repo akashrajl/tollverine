@@ -1,0 +1,188 @@
+.footer {
+  padding: 3rem 0 2rem 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 10;
+}
+
+.footerGrid {
+  display: grid;
+  max-width: 1280px;
+  margin: 0 auto;
+  gap: 2rem 3rem;
+  grid-template-areas:
+    "about company resources socials form"
+    "about support contact   socials form";
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 2fr;
+}
+
+/* Assigning each section to its named area in the grid */
+.aboutColumn { grid-area: about; }
+.companyColumn { grid-area: company; }
+.supportColumn { grid-area: support; }
+.resourcesColumn { grid-area: resources; }
+.contactColumn { grid-area: contact; }
+.socialsColumn { grid-area: socials; }
+.formColumn { grid-area: form; }
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.aboutColumn h3, 
+.companyColumn h4, 
+.supportColumn h4, 
+.resourcesColumn h4, 
+.contactColumn h4, 
+.socialsColumn h4, 
+.formColumn h4 {
+  font-family: var(--font-orbitron);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.aboutColumn p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.companyColumn ul, 
+.supportColumn ul, 
+.resourcesColumn ul, 
+.contactColumn ul, 
+.socialsColumn ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.companyColumn a, 
+.supportColumn a, 
+.resourcesColumn a, 
+.contactColumn a, 
+.socialsColumn a {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.companyColumn a:hover, 
+.supportColumn a:hover, 
+.resourcesColumn a:hover, 
+.contactColumn a:hover, 
+.socialsColumn a:hover {
+  color: var(--text-primary);
+}
+
+.contactList li, .socialList a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.socialList a svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactForm input, .contactForm textarea {
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.contactForm textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contactForm input:focus, .contactForm textarea:focus {
+  outline: none;
+  border-color: var(--text-primary);
+}
+
+.submitButton {
+  padding: 0.75rem;
+  background-color: var(--text-primary);
+  color: var(--background-dark);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: #d1d5db;
+}
+
+.copyright {
+  max-width: 1280px;
+  margin: 4rem auto 0 auto;
+  padding-top: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .footerGrid {
+    grid-template-areas:
+      "about about"
+      "company resources"
+      "support contact"
+      "socials socials"
+      "form form";
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+  .aboutColumn, .companyColumn, .supportColumn, .resourcesColumn, .contactColumn, .socialsColumn, .formColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .footerGrid {
+    grid-template-areas:
+      "about"
+      "company"
+      "support"
+      "resources"
+      "contact"
+      "socials"
+      "form";
+    grid-template-columns: 1fr;
+  }
+}
+
+.copyright {
+  /* ... */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.viewCounter {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

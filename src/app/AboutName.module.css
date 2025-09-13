@@ -1,0 +1,51 @@
+.aboutSection {
+  padding: 8rem 0; /* Add significant padding for spacing */
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Left column slightly smaller */
+  gap: 4rem;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.logoColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoImage {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 30px var(--accent-glow));
+}
+
+.textColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.textColumn h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: var(--accent-primary);
+}
+
+.textColumn p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 600px;
+}
+/* --- Add this for responsiveness --- */
+@media (max-width: 768px) {
+  .aboutSection {
+    grid-template-columns: 1fr; /* Switch to a single column layout */
+    text-align: center;
+    padding: 4rem 0;
+  }
+}

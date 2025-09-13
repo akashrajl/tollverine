@@ -1,0 +1,32 @@
+.accordionItem {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.accordionHeader {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.accordionContent {
+  padding: 0 0 1.5rem 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}

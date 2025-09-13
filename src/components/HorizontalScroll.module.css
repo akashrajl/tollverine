@@ -1,0 +1,21 @@
+.scrollContainer {
+  overflow: hidden;
+  padding: 2rem 0;
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.scrollTrack {
+  display: flex;
+  width: max-content;
+  gap: 2rem;
+  animation: scroll 60s linear infinite; /* Adjust duration for speed */
+}
+.scrollContainer:hover .scrollTrack {
+  animation-play-state: paused; /* Pause animation on hover */
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

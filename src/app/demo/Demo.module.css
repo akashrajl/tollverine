@@ -1,0 +1,237 @@
+.pageContainer {
+  width: 100%;
+  padding-top: 120px;
+  background-color: transparent;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.heroVideoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  background-color: #000;
+  border: 1px solid var(--border-color);
+}
+.heroVideoContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.videoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-secondary);
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+
+/* --- General Section Styles --- */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 700px;
+  margin: -2rem auto 3rem auto;
+}
+
+/* --- Key Highlights Section --- */
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+.highlightCard {
+  --glow-color: #60a5fa; /* Blue glow */
+  background-color: var(--card-background);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  height: 100%;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.highlightCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px 5px var(--glow-color);
+}
+.highlightIcon {
+  color: #60a5fa;
+  margin-bottom: 1.5rem;
+}
+.highlightCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.highlightCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* --- Tech Showcase Section --- */
+.techShowcaseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+.techShowcaseCard {
+  --glow-color: #10b981; /* Green glow */
+  background-color: var(--card-background);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  height: 100%;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.techShowcaseCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px 5px var(--glow-color);
+}
+.techShowcaseIcon {
+  color: #10b981;
+  margin-bottom: 1.5rem;
+}
+.techShowcaseCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.techShowcaseCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+/* --- Case Studies / Success Stories Section --- */
+.caseStudyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+.caseStudyCard {
+  --glow-color: #ef4444; /* Red glow */
+  background-color: var(--card-background);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  height: 100%;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.caseStudyCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px 5px var(--glow-color);
+}
+.caseStudyCard h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ef4444;
+}
+.caseStudyCard p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.caseStudyCard ul {
+  list-style: none;
+  padding-left: 0;
+}
+.caseStudyCard li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.caseStudyCard li svg {
+  color: #34d399; /* Checkmark green */
+}
+
+/* --- Final CTA --- */
+.finalCta {
+  text-align: center;
+  padding: 6rem 2rem;
+}
+.finalCta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+.ctaButtonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.ctaButton {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--background-dark);
+  background-color: var(--text-primary);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.ctaButton:hover {
+  transform: scale(1.05);
+}
+.secondaryButton {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .heroTitle { font-size: 2.5rem; }
+  .sectionTitle { font-size: 2.2rem; }
+  .highlightsGrid, .techShowcaseGrid, .caseStudyGrid {
+    grid-template-columns: 1fr;
+  }
+  .ctaButtonGroup {
+    flex-direction: column;
+  }
+}

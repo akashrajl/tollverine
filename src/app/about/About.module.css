@@ -1,0 +1,227 @@
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+.pageContainer {
+  width: 100%;
+  padding-top: 120px;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  text-align: center;
+  padding: 6rem 2rem;
+}
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Story Section --- */
+.storySection {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 6rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.storyContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.storyContent p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+.storyImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- General Section Title --- */
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* --- Values & Team Sections --- */
+.valuesSection, .teamSection {
+  padding: 6rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.valuesGrid, .teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+/* --- NEON CARD STYLING --- */
+.neonCard {
+  --border-width: 3px;
+  --glow-offset: -15px;
+  --border-radius: 1rem;
+  --animation-duration: 6s;
+
+  position: relative;
+  border: solid var(--border-width) transparent;
+  border-radius: var(--border-radius);
+  min-height: 400px;
+  background-color: var(--card-background);
+  transition: transform 0.3s ease;
+}
+
+.neonCard:hover {
+  transform: scale(1.03);
+}
+
+.neonCardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.neonCardContent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--moon-clr), transparent);
+  opacity: 0.15;
+  z-index: -1;
+  border-radius: var(--border-radius);
+}
+
+.neonCard h2 {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px var(--moon-clr);
+  color: var(--text-primary);
+}
+
+.neonCard p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.neonCard::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--border-width) * -1);
+  border: inherit;
+  border-radius: inherit;
+  background: conic-gradient(
+      from var(--angle),
+      var(--moon-clr) 40%,
+      transparent,
+      var(--moon-clr) 60%
+    ) border-box;
+  mask: 
+    linear-gradient(#0000 0 0) content-box,
+    linear-gradient(#0000 0 0);
+  mask-composite: exclude;
+  opacity: 0.8;
+  z-index: 1;
+  animation: neon-rotate var(--animation-duration) linear infinite;
+}
+
+.neonCard::after {
+  content: "";
+  inset: var(--glow-offset);
+  position: absolute;
+  z-index: -2;
+  background: conic-gradient(
+    from var(--angle),
+    var(--moon-clr),
+    transparent,
+    var(--moon-clr)
+  );
+  border-radius: calc(var(--border-radius) + 10px);
+  filter: blur(15px);
+  opacity: 0.75;
+  animation: neon-rotate var(--animation-duration) linear infinite;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.neonCard:hover::after {
+  opacity: 1;
+  filter: blur(20px);
+}
+
+@keyframes neon-rotate {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+/* --- Team Member Specific Styles --- */
+.teamMemberImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--border-color);
+}
+.teamMemberDetails {
+  margin: 1rem 0;
+}
+.memberEmail {
+  color: var(--golden-outline);
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.memberEmail:hover {
+  color: #fff;
+}
+.socialLinks {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.socialLinks a {
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.socialLinks a:hover {
+  color: var(--text-primary);
+  transform: scale(1.2);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .storySection {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .storyImage {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+}

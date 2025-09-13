@@ -1,0 +1,224 @@
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+.pageContainer {
+  width: 100%;
+  padding-top: 120px;
+}
+
+.header {
+  text-align: center;
+  padding: 6rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.flowSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.timelineTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr; /* Left column, center line, right column */
+  position: relative;
+}
+
+/* The central arrow/line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background-color: #4A5568; /* Grey for the arrow line */
+  
+  /* Arrowhead at the bottom */
+  background: linear-gradient(to bottom, #4A5568, #4A5568);
+  clip-path: polygon(
+    100% 0, 100% calc(100% - 20px), 
+    150% calc(100% - 20px), 50% 100%, 
+    -50% calc(100% - 20px), 0 calc(100% - 20px), 
+    0 0
+  );
+}
+
+.timelineItem {
+  margin-bottom: 2rem;
+  display: flex;
+  position: relative;
+}
+
+/* Position items in their respective columns */
+.leftItem {
+  grid-column: 1;
+  justify-content: flex-end;
+  padding-right: 40px; /* Space from the center line */
+}
+
+.rightItem {
+  grid-column: 3;
+  justify-content: flex-start;
+  padding-left: 40px; /* Space from the center line */
+}
+
+/* Connector line from card to center arrow */
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 40px;
+  background-color: #4A5568;
+}
+
+.leftItem::before {
+  right: 0;
+}
+
+.rightItem::before {
+  left: 0;
+}
+
+
+/* --- Flow Card Base Styling --- */
+.flowCard {
+  --border-width: 2px;
+  --border-radius: 0.75rem;
+  --animation-duration: 4s;
+  --moon-clr: var(--golden-outline);
+
+  position: relative;
+  width: 400px; /* Equal fixed width for all cards */
+  min-height: 120px; /* Equal min-height for all cards */
+  padding: 1.5rem 1.5rem 1.5rem 3.5rem; /* Padding for number */
+  border-radius: var(--border-radius);
+  background-color: var(--card-background);
+  transition: transform 0.3s ease;
+  z-index: 1;
+  border: solid var(--border-width) transparent;
+  display: flex;
+  align-items: center;
+}
+
+.flowCard:hover {
+  transform: scale(1.03);
+}
+
+/* Glowing border effect (only on hover) */
+.flowCard::after {
+  content: "";
+  position: absolute;
+  inset: -2px; /* A bit larger than the card for the glow */
+  border-radius: var(--border-radius);
+  background: var(--moon-clr);
+  filter: blur(15px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.flowCard:hover::after {
+  opacity: 0.5; /* Show glow on hover */
+}
+
+
+/* Step Number Styling */
+.stepNumber {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--golden-outline);
+}
+
+
+/* --- Card Content Layout --- */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.stepTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.techUsed {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-family: monospace;
+}
+
+/* --- Conditional Card Styling --- */
+.process { --moon-clr: var(--golden-outline); }
+.decision { --moon-clr: #facc15; }
+.success { --moon-clr: #34d399; }
+.fail { --moon-clr: #ef4444; }
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+  .timeline {
+    grid-template-columns: 1fr; /* Stack into a single column */
+    padding: 0;
+  }
+  .timeline::before {
+    left: 10px; /* Move central line to the left */
+  }
+  .leftItem, .rightItem {
+    grid-column: 1;
+    justify-content: flex-start;
+    padding-left: 40px; /* All cards on the right of the line */
+    padding-right: 0;
+  }
+  .rightItem::before, .leftItem::before {
+    left: 0;
+  }
+  .flowCard {
+    width: 100%; /* Make cards full width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .header { padding: 4rem 1rem; }
+  .title { font-size: 2.5rem; }
+  .flowCard { padding: 1rem 1rem 1rem 3rem; }
+  .stepNumber { left: 1rem; }
+}
