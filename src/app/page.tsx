@@ -227,7 +227,7 @@ export default function Home() {
                 <a href="https://gitcon.in/" target="_blank" rel="noopener noreferrer" className={ieeeStyles.linkButton}>
                   Visit Conference Site
                 </a>
-                <a href="https://ieeexplore.ieee.org/" target="_blank" rel="noopener noreferrer" className={ieeeStyles.linkButton}>
+                <a href="https://ieeexplore.ieee.org/document/11377374" target="_blank" rel="noopener noreferrer" className={ieeeStyles.linkButton}>
                   View in IEEE Xplore
                 </a>
                 <a href="/tollverine_research_paper.pdf" download className={ieeeStyles.downloadButton}>
